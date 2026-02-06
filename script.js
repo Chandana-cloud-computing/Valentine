@@ -69,14 +69,14 @@ function q2Yes() {
     document.getElementById("popup3").style.display = "flex";
 }
 
-// Q3 YES → FINAL romantic moment 💖
 function q3Yes() {
     document.getElementById("popup3").style.display = "none";
 
-    const ring = document.createElement("div");
-    ring.className = "ring";
-    ring.innerHTML = "💍";
-    document.body.appendChild(ring);
+    // 🧸 Teddy GIF instead of ring
+    const teddy = document.createElement("img");
+    teddy.src = "./teddy.gif";   // path to your GIF
+    teddy.className = "teddy";
+    document.body.appendChild(teddy);
 
     const bgMusic = document.getElementById("bg-music");
     const voice = document.getElementById("voice-note");
@@ -85,17 +85,17 @@ function q3Yes() {
     const originalVolume = 0.5;
     const lowVolume = 0.15;
 
-    // lower music
+    // Lower background music
     let down = setInterval(() => {
         if (bgMusic.volume > lowVolume) bgMusic.volume -= 0.05;
         else clearInterval(down);
     }, 100);
 
-    // play voice
+    // Play voice
     voice.currentTime = 0;
     voice.play();
 
-    // subtitles typing
+    // Subtitles typing
     subtitlesData.forEach(line => {
         setTimeout(() => {
             typeSubtitle(line.text, subtitles);
@@ -110,10 +110,11 @@ function q3Yes() {
         }, 100);
     };
 
+    // Remove teddy after some time (optional)
     setTimeout(() => {
-        ring.remove();
-        showForeverText();
-    }, 3000);
+        teddy.remove();
+        alert("Forever starts now 💖");
+    }, 5000);
 }
 const subtitlesData = [
     { time: 0, text: "I am so lucky to have you❤️" },
@@ -150,6 +151,7 @@ setInterval(() => {
     index = (index + 1) % slides.length;
     slides[index].classList.add("active");
 }, 3000);
+
 
 
 
