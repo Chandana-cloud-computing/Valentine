@@ -72,9 +72,9 @@ function q2Yes() {
 function q3Yes() {
     document.getElementById("popup3").style.display = "none";
 
-    // 🧸 Teddy GIF instead of ring
+    // 🧸 Teddy GIF
     const teddy = document.createElement("img");
-    teddy.src = "./teddy.gif";   // path to your GIF
+    teddy.src = "https://chandana-cloud-computing.github.io/Valentine/teddy-kiss.gif";
     teddy.className = "teddy";
     document.body.appendChild(teddy);
 
@@ -85,17 +85,17 @@ function q3Yes() {
     const originalVolume = 0.5;
     const lowVolume = 0.15;
 
-    // Lower background music
+    // 🔉 Lower background music
     let down = setInterval(() => {
         if (bgMusic.volume > lowVolume) bgMusic.volume -= 0.05;
         else clearInterval(down);
     }, 100);
 
-    // Play voice
+    // 🎙️ Play voice
     voice.currentTime = 0;
     voice.play();
 
-    // Subtitles typing
+    // 💬 Subtitles typing
     subtitlesData.forEach(line => {
         setTimeout(() => {
             typeSubtitle(line.text, subtitles);
@@ -110,10 +110,10 @@ function q3Yes() {
         }, 100);
     };
 
-    // Remove teddy after some time (optional)
+    // 🧸 Remove teddy after 5s + final message
     setTimeout(() => {
         teddy.remove();
-        alert("Forever starts now 💖");
+        showForeverText(); // or alert if you prefer
     }, 5000);
 }
 const subtitlesData = [
@@ -151,6 +151,7 @@ setInterval(() => {
     index = (index + 1) % slides.length;
     slides[index].classList.add("active");
 }, 3000);
+
 
 
 
