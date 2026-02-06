@@ -92,10 +92,9 @@ p {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    width: 180px;
-    animation: teddyPop 3s ease forwards;
-    z-index: 999;
+    transform: translate(-50%, -50%);
+    width: 220px;
+    z-index: 9999;
 }
 
 @keyframes teddyPop {
@@ -247,3 +246,4 @@ body::before {
     transition: opacity 0.5s ease;
 
 }
+
