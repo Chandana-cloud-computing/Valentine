@@ -110,10 +110,10 @@ function q3Yes() {
         }, 100);
     };
 
-    // 🧸 Remove teddy after 5s + final message
+    // 🧸 Remove teddy after 5s
     setTimeout(() => {
         teddy.remove();
-        showForeverText(); // or alert if you prefer
+        showForeverText();
     }, 5000);
 }
 const subtitlesData = [
@@ -151,6 +151,7 @@ setInterval(() => {
     index = (index + 1) % slides.length;
     slides[index].classList.add("active");
 }, 3000);
+
 
 
 
