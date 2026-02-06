@@ -9,9 +9,27 @@ window.addEventListener("load", () => {
     });
 });
 function showSurprise() {
-    document.getElementById("surprise").style.display = "block";
-}
+    document.getElementById("surprise").classList.remove("hidden");
 
+    const bgMusic = document.getElementById("bg-music");
+    bgMusic.volume = 0.5;
+
+    bgMusic.play().catch(() => {
+        console.log("Autoplay blocked until user interaction");
+    });
+}
+function playVoiceNote() {
+    const bgMusic = document.getElementById("bg-music");
+    const voice = document.getElementById("voice-note");
+
+    bgMusic.volume = 0.15; // lower bgm
+    voice.currentTime = 0;
+    voice.play();
+
+    voice.onended = () => {
+        bgMusic.volume = 0.5; // restore bgm
+    };
+}
 // Floating hearts animation (video filter style)
 const heartsContainer = document.querySelector(".hearts");
 
@@ -132,5 +150,6 @@ setInterval(() => {
     index = (index + 1) % slides.length;
     slides[index].classList.add("active");
 }, 3000);
+
 
 
